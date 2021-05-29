@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-
+import 'screen.dart';
 void main() {
   runApp(MyApp());
 }
@@ -133,6 +133,7 @@ class _DayFiveState extends State<DayFive> {
                       margin: EdgeInsets.all(8.0),
                       child: TextFormField(
                         obscureText: showPassWord,
+                        onSaved: (newValue) => password = newValue,
                         onChanged: (value) {
                           if (value.isNotEmpty) {
                             removeError(error: "Please Enter your password");
@@ -304,45 +305,6 @@ class _DayFiveState extends State<DayFive> {
           ),
         ),
       ),
-    );
-  }
-}
-
-class FormError extends StatelessWidget {
-  const FormError({
-    Key key,
-    @required this.errors,
-  }) : super(key: key);
-
-  final List<String> errors;
-  static MediaQueryData _mediaQueryData;
-  double getProportionateScreenWidth(double inputWidth) {
-    double screenWidth = _mediaQueryData.size.width;
-    // 375 is the layout width that designer use
-    return (inputWidth / 375.0) * screenWidth;
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: List.generate(
-          errors.length, (index) => formErrorText(error: errors[index])),
-    );
-  }
-
-  Row formErrorText({String error}) {
-    return Row(
-      children: [
-        SvgPicture.asset(
-          "assets/icons/Error.svg",
-          height: getProportionateScreenWidth(14),
-          width: getProportionateScreenWidth(14),
-        ),
-        SizedBox(
-          width: getProportionateScreenWidth(10),
-        ),
-        Text(error),
-      ],
     );
   }
 }
