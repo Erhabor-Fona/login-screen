@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:flutter_svg/flutter_svg.dart';
 void main() {
   runApp(MyApp());
 }
@@ -146,7 +146,7 @@ Widget build(BuildContext context) {
                     ),
                     Text(
                       "Remember me",
-                      style: TextStyle(color: Colors.white),
+                      style: TextStyle(color: Colors.teal),
                     ),
                     Spacer(),
                     Text(
@@ -170,10 +170,57 @@ Widget build(BuildContext context) {
 
                   ],
                 ),
-                SizedBox(height: 15,),
-                Text("Social Media Icons coming soon!",
+                SizedBox(height: 20,),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: <Widget>[
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: FloatingActionButton(
+                              heroTag: "tag3",
+                              backgroundColor: Colors.white,
+                              child: SvgPicture.asset("assets/icons/twitter.svg"),
+                              onPressed: () {}),
+                        ),
+                        SizedBox(width: 10,),
+
+                      ],
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: FloatingActionButton(
+                          heroTag: "tag3",
+                          backgroundColor: Colors.white,
+                          child: SvgPicture.asset("assets/icons/facebook-2.svg"),
+                          onPressed: () {}),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: FloatingActionButton(
+                          heroTag: "tag5",
+                          shape: CircleBorder(
+                              side:
+                              BorderSide(color: Colors.deepOrangeAccent)),
+                          backgroundColor: Colors.white,
+                          child: SvgPicture.asset("assets/icons/google.svg"),
+                          onPressed: () {}),
+                    ),
+                  ],
+                ),
+                SizedBox(height: 10,),
+                Text("Don't have an account?",
                 style: TextStyle(
                   color: Colors.teal
+                ),),
+                SizedBox(height: 5,),
+                Text(" Sign up here",
+                style: TextStyle(
+                  color: Colors.teal,
+                  decoration: TextDecoration.underline,
                 ),)
 
               ],
